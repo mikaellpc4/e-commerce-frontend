@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { BiCart, BiUserCircle } from 'react-icons/bi'
 import { Root, Trigger, List, Item, Content } from '@radix-ui/react-navigation-menu'
 import { useState } from 'react'
+import Logo from '../assets/images/logo.png'
 
 
 export const Navbar = () => {
@@ -25,14 +26,14 @@ export const Navbar = () => {
       <>
         {triggers.map((trigger,index) => {
           return (
-            <Item key={index} className='relative font-bold text-xl flex justify-center' >
+            <Item key={index} className='relative w-32 font-bold text-xl flex justify-center' >
               <span className='
                 after:absolute 
                 after:bg-cyan-300 
                 after:h-[3px] 
                 after:w-0 
-                after:left-[-11%]
-                hover:after:w-[120%] 
+                after:left-[-20%]
+                hover:after:w-[140%] 
                 after:bottom-[-11%]
                 after:transition-all 
                 after:duration-300 
@@ -46,21 +47,25 @@ export const Navbar = () => {
                   absolute 
                   flex 
                   flex-col 
+                  break-words
                   font-medium
                   bg-yellow-300 
                   px-4
                   py-2
-                  w-[120%]
-                  left-[-11%] 
+                  w-[140%]
+                  left-[-20%] 
                   z-10 
                   top-[115%] 
                   animate-drop
+                  rounded
+                  shadow-yellow-500
+                  shadow
                 '>
                   {trigger.triggerContent.map((item) => {
                     const itemNormalized = item.itemName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
                     const itemUrl = `${trigger.triggerUrl}-${itemNormalized}`
                     return (
-                      <Link key={`${item.itemName}`} className='p-1' to={itemUrl}>
+                      <Link key={`${item.itemName}`} className='py-1.5 hover:-translate-y-[4%] transition duration-150' to={itemUrl}>
                         {item.itemName}
                       </Link>
                     )
@@ -75,8 +80,7 @@ export const Navbar = () => {
   }
 
   const masculino = {
-    triggerName: 'Masculino',
-    triggerUrl: 'products/masculino',
+    triggerName: 'Masculino', triggerUrl: 'products/masculino',
     triggerContent: [
       {
         itemName: 'Camisas',
@@ -85,18 +89,50 @@ export const Navbar = () => {
         itemName: 'Blusas',
       },
       {
-        itemName: 'Calças',
+        itemName: 'Shorts',
+      },
+      {
+        itemName: 'Bermudas',
+      },
+      {
+        itemName: 'Conjuntos',
       }
     ]
   }
 
-  const [triggers, setTriggers] = useState<ITriggerItem[]>([masculino, masculino, masculino, masculino])
+  const feminino = {
+    triggerName: 'Feminino',
+    triggerUrl: 'products/feminino',
+    triggerContent: [
+      {
+        itemName: 'Camisas',
+      },
+      {
+        itemName: 'Blusas',
+      },
+      {
+        itemName: 'Shorts',
+      },
+      {
+        itemName: 'Biquinis',
+      },
+      {
+        itemName: 'Maiô',
+      },
+      {
+        itemName: 'Conjuntos',
+      }
+    ]
+  }
+
+  const [triggers, setTriggers] = useState<ITriggerItem[]>([masculino, feminino])
 
 
   return (
-    <Root className='h-20 flex justify-between items-center px-8 py-2 bg-yellow-400 shadow-2xl rounded-lg m-3'>
-      <Link className='font-bold text-3xl' to="/" >
-        <span> Banana Store </span>
+    <Root className='h-20 flex justify-between items-center pr-8 py-2 bg-yellow-400 shadow-2xl rounded-lg m-3'>
+      <Link className='flex items-center' to="/" >
+        <img src={Logo} width='120' />
+        <span className='text-2xl font-bold'> Banana Store </span>
       </Link>
       <List className='hidden lg:flex justify-between items-center gap-10 mr-15'>
         <ListItem triggers={triggers} />
