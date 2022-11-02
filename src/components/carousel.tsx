@@ -11,14 +11,28 @@ SwiperCore.use([Navigation, Pagination, Autoplay])
 export const Carousel = ({ className = '' }) => {
   const slides = []
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
     slides.push(
-      <SwiperSlide className='w-full grid grid-cols-2' key={`slide-${i}`} tag='li'>
-        <img className='h-full max-w-full' src={`https://picsum.photos/id/${i + 1}/500/300`} alt={`Slide ${i}`} />
-        <div className="max-w-full h-full flex flex-col p-44 items-start">
-          <h1 className='font-bold text-6xl'> Summer is coming </h1>
-          <h1 className='font-bold text-6xl text-cyan-100'> Upto 80% OFF </h1>
-          <p className='my-5 text-xl'> Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p>
+      <SwiperSlide className='w-full grid lg:grid-cols-2 md:grid-flow-col' key={`slide-${i}`} tag='li'>
+        <div className='lg:hidden absolute bg-black inset-0 bg-opacity-40'></div>
+        <img className='h-[100%] w-[100%] object-cover' src={`https://picsum.photos/id/${i}/1920/1080`} alt={`Slide ${i}`} />
+        <div className="
+          flex 
+          absolute 
+          lg:static 
+          lg:text-black 
+          text-white 
+          flex-col 
+          items-start 
+          justify-center 
+          p-4 
+          lg:py-0
+          px-[15%]
+          py-[10%]
+          ">
+          <h1 className='font-bold lg:text-6xl text-4xl' > Summer is coming </h1>
+          <h1 className='font-bold lg:text-6xl text-4xl' > Upto 80% OFF </h1>
+          <h1 className='my-5 lg:text-xl '> Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</h1>
           <div className='shadow-md shadow-yellow-400'>
             <Link className='flex px-4 py-3 gap-3 bg-yellow-300' to={`/catalog/${i}`}>
               <span className='text-md my-auto mr-2 font-bold text-gray-900'> Compre agora </span>
@@ -27,6 +41,9 @@ export const Carousel = ({ className = '' }) => {
             </Link>
           </div>
         </div>
+        <div className='hidden'>
+
+        </div>
       </SwiperSlide>
     )
   }
@@ -34,7 +51,7 @@ export const Carousel = ({ className = '' }) => {
   return (
     <React.Fragment>
       <Swiper
-        className={`h-[600px] max-w-100 border bg-cyan-400 select-none ${className}`}
+        className={`lg:h-[600px] h-[450px] border bg-cyan-400 select-none ${className}`}
         tag="section"
         wrapperTag='ul'
         id="main"

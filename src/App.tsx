@@ -1,17 +1,15 @@
-import { Navbar } from "./components/navbar"
-import { Route, Routes } from 'react-router-dom'
-import Home from "./pages/home"
-import Catalog from "./pages/catalog"
-import Cart from "./pages/cart"
+import { Navbar } from "./components/Navbar"
+import { Routes, Route } from 'react-router-dom'
+import MainRoutes from "./MainRoutes"
+import PageNotFound from "./pages/PageNotFound"
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Catalog />} />
-        <Route path="/cart" element={<Cart />} />
+        {MainRoutes}
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   )

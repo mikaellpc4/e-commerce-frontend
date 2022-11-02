@@ -1,5 +1,5 @@
-import { Card } from "../components/card"
-import { Carousel } from "../components/carousel"
+import { Card } from "../components/Card"
+import { Carousel } from "../components/Carousel"
 
 const Home = () => {
   return (
