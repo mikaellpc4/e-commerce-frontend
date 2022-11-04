@@ -1,11 +1,9 @@
-import React from 'react'
-import Arrow from '@radix-ui/'
 import { Link } from 'react-router-dom'
 
 const ProfileModal = ({ open }: { open: boolean }) => {
   if (!open) return null
   return (
-    <div className='hidden lg:flex absolute right-12 top-9 w-64 pt-5 z-50 animate-drop'>
+    <div className='hidden lg:flex absolute right-[50%] top-[85%] w-64 pt-5 z-50 animate-drop'>
       <div className='bg-yellow-300 rounded text-left px-4 py-5 flex flex-col gap-5'>
         <div className='absolute top-[5%] left-[86.5%] bg-yellow-300 w-5 h-5 rotate-45'></div>
         <p> Para ver seus pedidos e ter uma experiência personalizada, acesse sua conta :)  </p>

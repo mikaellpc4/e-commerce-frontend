@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.navbarLink {
+  @apply flex flex-col justify-center items-center text-center
+}
+
+.navbarLinkIcon {
+   @apply transition duration-200 z-10
+}
+
+.navbarLinkSpan {
+ @apply absolute -bottom-5 transition duration-200 opacity-0 
+}
+
+.active {
+  @apply -translate-y-[120%] opacity-100
+}
+
+.activeIcon {
+  @apply -translate-y-[120%] opacity-100
+}
