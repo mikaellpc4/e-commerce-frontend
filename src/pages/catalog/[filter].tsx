@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom"
+import {useRouter} from 'next/router'
 
 const Catalog = () => {
 
-  const { filters } = useParams()
+  const router = useRouter()
+  const filters = router.asPath.split('/').pop()
 
   return (
     <>

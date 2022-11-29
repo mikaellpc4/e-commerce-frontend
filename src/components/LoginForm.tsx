@@ -1,9 +1,22 @@
 import React from 'react'
-import {Root, List, Trigger, Content} from '@radix-ui/react-tabs'
+import AnimatedLabelInput from './AnimatedLabelInput'
+
+const loginInputs = [
+  {
+    name: 'Email',
+    type: 'Email'
+  },
+  {
+    name: 'Password',
+    type: 'Password'
+  },
+]
 
 const LoginForm = () => {
   return (
-    <div>LoginForm</div>
+    <div>
+      <AnimatedLabelInput inputs={loginInputs} />
+    </div>
   )
 }
 
