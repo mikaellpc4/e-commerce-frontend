@@ -51,7 +51,7 @@ const Navbar = () => {
       {/* desktop */}
       <DesktopNavbar navOptions={navOptions} />
       {/* Mobile */}
-      <MobileNavbar options={{navOptions, defaultOptions}} />
+      <MobileNavbar options={[...navOptions, ...defaultOptions]} />
     </Root >
   )
 }

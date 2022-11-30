@@ -3,10 +3,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 interface MobileNavbarProps {
-  options: {
-    navOptions: Option[],
-    defaultOptions: Option[]
-  }
+  options: Option[]
 }
 
 function getOffset(el: Element) {
@@ -19,8 +16,6 @@ const MobileNavbar = ({ options }: MobileNavbarProps) => {
   const [activeItem, setActiveItem] = useState<string>()
   const [activeItemPosition, setActiveItemPosition] = useState<number>(-100)
 
-  const allOptions = [...options.navOptions, ...options.defaultOptions]
-
   const handleActive = (e: React.SyntheticEvent) => {
     setActiveItem(e.currentTarget.id)
     const element = e.currentTarget
@@ -31,7 +26,7 @@ const MobileNavbar = ({ options }: MobileNavbarProps) => {
   return (
     <div className='lg:hidden fixed bottom-4 left-0 w-[100%] h-[60px] px-3 block z-10'>
       <List className='flex justify-around items-center bg-yellow-300 h-14 font-bold p-4 rounded-lg'>
-        {allOptions.map((option) => {
+        {options.map((option) => {
           return (
             <Link key={`mobile ${option.name}`} id={option.name} onClick={handleActive} className='navbarLink' href={option.to}>
               <span className={`navbarLinkIcon ${activeItem === option.name ? 'active' : ''}`}>
